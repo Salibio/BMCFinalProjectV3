@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_app/providers/cart_provider.dart';
 import 'package:ecommerce_app/screens/admin_panel_screen.dart';
 import 'package:ecommerce_app/screens/cart_screen.dart';
+import 'package:ecommerce_app/screens/order_history_screen.dart'; // 1. ADD THIS
 import 'package:ecommerce_app/screens/product_detail_screen.dart';
 import 'package:ecommerce_app/widgets/product_card.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -73,6 +74,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
+                ),
+              );
+            },
+          ),
+          // 2. --- ADD THIS NEW BUTTON ---
+          IconButton(
+            icon: const Icon(Icons.receipt_long), // A "receipt" icon
+            tooltip: 'My Orders',
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const OrderHistoryScreen(),
                 ),
               );
             },
